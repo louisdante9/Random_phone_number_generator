@@ -1,22 +1,13 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
-
-const NumberInput = ({ onClick, onChange }) => (
+const NumberInput = () => (
     <div>
       <input
-          type="number"
+          type="text"
           placeholder="Enter number only"
-          onChange={onChange}
       />
-      <button
-        onClick={onClick}>
-        Generate
-      </button>
+      <button>Generate</button>
     </div>
 );
-NumberInput.propTypes = {
-    onClick: PropTypes.func.isRequired,
-    onChange: PropTypes.func.isRequired,
-  };
+
 export default NumberInput;
