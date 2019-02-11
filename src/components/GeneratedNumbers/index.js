@@ -1,20 +1,27 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
-const GeneratedNumbers = () => (
+
+const GeneratedNumbers = ({ phoneNumbers }) => (
     <div>
-      <h3>Generated Numbers</h3>
+    {phoneNumbers.length > 1 ?
+          <h3>Generated Numbers</h3>
+          :
+          <span><i>No phone numbers generated yet</i></span>
+      }
+
       <div>
         <ul className="generated-numbers">
-          <li>0987646724</li>
-          <li>0987646724</li>
-          <li>0987646724</li>
-          <li>0987646724</li>
-          <li>0987646724</li>
-          <li>0987646724</li>
-          <li>0987646724</li>
+        {
+            phoneNumbers && phoneNumbers.map(number => (
+                <li key={number}>{number}</li>
+            ))
+          }
         </ul>
       </div>
     </div>
 );
-
+GeneratedNumbers.propTypes = {
+  phoneNumbers: PropTypes.array.isRequired,
+};
 export default GeneratedNumbers;

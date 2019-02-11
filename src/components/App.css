@@ -61,7 +61,7 @@
   padding: 24px;
 }
 
-.input-wrapper input[type=text] {
+.input-wrapper input[type=number] {
     height: 45px;
     width: 200px;
 }
