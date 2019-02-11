@@ -1,24 +1,29 @@
-import React, { Component } from 'react';
-import '../App.css';
+import React, {Component, Fragment} from 'react';
+import './App.css';
+import Header from "./Header";
+import SubTitle from "./SubTitle";
+import NumberInput from "./NumberInput";
+import Sorter from "./Sorter";
+import GeneratedNumbers from "./GeneratedNumbers";
+// import Statistics from "./Statistics";
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <Fragment>
+          <Header/>
+          <div className="wrapper">
+            <SubTitle/>
+            <div className="App-body">
+             <div className="input-wrapper"> 
+               <NumberInput/>
+               <Sorter/>
+              </div>
+              <GeneratedNumbers/>
+              {/* <button>Export Numbers</button> */}
+            </div>
+          </div>
+        </Fragment>
     );
   }
 }

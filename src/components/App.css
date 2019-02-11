@@ -1,0 +1,89 @@
+.App-header {
+  background-color: #fbfdff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: #465b83;
+  flex: 1 1 auto;
+  justify-content: center;
+}
+.App-header h1 {
+  font-size: 125px;
+  font-weight: 500;
+  margin-bottom: 70px;
+}
+
+.App-header h3 {
+  font-weight: 300;
+}
+
+.App-header .stats-details {
+  font-size: 20px;
+  font-weight: 300;
+}
+.wrapper {
+  flex: 1 1 50%;
+  padding: 40px 20px;
+}
+.App-subtitle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+}
+
+.App-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.value-input {
+  margin-left: 10px;
+}
+
+.generated-numbers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  list-style: none;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+.input-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  padding: 24px;
+}
+
+.input-wrapper input[type=text] {
+    height: 45px;
+    width: 200px;
+}
+.input-wrapper button {
+  padding: 13px;
+  font-size: 14px;
+  background-color: #000;
+  color: #fff;
+  outline: none;
+  cursor: pointer;
+}
+
+.sort select{
+  height: 40px;
+  width: 200px;
+  margin-left: 10px;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
