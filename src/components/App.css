@@ -25,6 +25,7 @@
 .wrapper {
   flex: 1 1 50%;
   padding: 40px 20px;
+  overflow: scroll;
 }
 .App-subtitle {
   display: flex;

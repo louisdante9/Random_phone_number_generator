@@ -12,9 +12,24 @@ class App extends Component {
     error: false,
     message: "",
     limit: 1,
-    phoneNumbers: []
+    phoneNumbers: [],
+    min: null,
+    max: null,
+    total: 0
   };
-
+  setStatistics = () => {
+    const { phoneNumbers } = this.state;
+    if (phoneNumbers.length > 0) {
+      const min = Math.min(...phoneNumbers);
+      const max = Math.max(...phoneNumbers);
+      const total = phoneNumbers.length;
+      this.setState({
+        min,
+        max,
+        total
+      })
+    }
+  };
   generateNumberHandler = event => {
     event.preventDefault();
     const { limit } = this.state;
@@ -30,7 +45,7 @@ class App extends Component {
     }
     return this.setState({
       phoneNumbers
-    });
+    }, () => this.setStatistics());
   };
 
   getUserInput = async event => {
@@ -51,10 +66,15 @@ class App extends Component {
   };
 
   render() {
-    const { error, message, phoneNumbers } = this.state;
+    const { error, message, phoneNumbers, min, max, total  } = this.state;
     return (
         <Fragment>
-          <Header/>
+          <Header  
+          phoneNumbers={phoneNumbers}
+              min={min}
+              max={max}
+              total={total}
+            />
           <div className="wrapper">
             <SubTitle/>
             <div className="App-body">
