@@ -15,7 +15,8 @@ class App extends Component {
     phoneNumbers: [],
     min: null,
     max: null,
-    total: 0
+    total: 0,
+    sorter: 'asc'
   };
   setStatistics = () => {
     const { phoneNumbers } = this.state;
@@ -45,7 +46,10 @@ class App extends Component {
     }
     return this.setState({
       phoneNumbers
-    }, () => this.setStatistics());
+    }, () => 
+    this.setStatistics(),
+    this.sortPhoneNumbers()
+    );
   };
 
   getUserInput = async event => {
@@ -63,6 +67,27 @@ class App extends Component {
         message: "Error occurred while parsing the input"
       })
     }
+  };
+
+  sortPhoneNumbers = () => {
+    const { sorter, phoneNumbers } = this.state;
+    if (!phoneNumbers.length > 0) return;
+    if(sorter === 'asc'){
+      this.setState({
+        phoneNumbers : phoneNumbers.sort((x,y) => 0 - (x > y ? -1 : 1))
+      });
+    } else {
+      this.setState({
+        phoneNumbers : phoneNumbers.sort((x,y) => 0 - (x > y ? 1 : -1))
+      })
+    }
+  };
+  onSortChange = event => {
+    event.preventDefault();
+    const sorter = event.target.value;
+    this.setState({
+      sorter
+    }, () => this.sortPhoneNumbers());
   };
 
   render() {
@@ -87,7 +112,10 @@ class App extends Component {
                   onClick={this.generateNumberHandler}
                   onChange={this.getUserInput}
                   />
-               <Sorter/>
+               <Sorter
+                phoneNumbers={phoneNumbers}
+                onChange={this.onSortChange}
+               />
               </div>
               <GeneratedNumbers
                   phoneNumbers={phoneNumbers}
