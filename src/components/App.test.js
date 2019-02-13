@@ -92,4 +92,45 @@ describe('App Test', () => {
     expect(state.min).toBeDefined();
     expect(state.max).toBeDefined();
   });
+
+  test('should test sortPhoneNumbers', () => {
+    shallowComponent.setState({ sorter: 'desc', phoneNumbers: ['09876098765', '09876543'] });
+    instance.sortPhoneNumbers();
+    const state = shallowComponent.state();
+    expect(state.phoneNumbers.length).toBeGreaterThan(1);
+    expect(state.sorter).toBe('desc');
+  });
+
+  test('should call sortPhoneNumbers', () => {
+    shallowComponent.setState({ phoneNumbers: ['09876098765', '09876543']});
+    const event = {
+      preventDefault: () => {},
+      target: {
+        value: 'desc'
+      }
+    };
+    let spy;
+    spy = jest.spyOn(instance, 'onSortChange');
+    instance.onSortChange(event);
+    const state = shallowComponent.state();
+    expect(state.sorter).toBe('desc');
+    expect(spy).toHaveBeenCalled();
+    spy.mockRestore();
+  });
+  test('should call sortPhoneNumbers with ascending', () => {
+    shallowComponent.setState({ phoneNumbers: ['09876098765', '09876543']});
+    const event = {
+      preventDefault: () => {},
+      target: {
+        value: 'asc'
+      }
+    };
+    let spy;
+    spy = jest.spyOn(instance, 'onSortChange');
+    instance.onSortChange(event);
+    const state = shallowComponent.state();
+    expect(state.sorter).toBe('asc');
+    expect(spy).toHaveBeenCalled();
+    spy.mockRestore();
+  });
 });

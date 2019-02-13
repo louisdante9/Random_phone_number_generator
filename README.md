@@ -1,3 +1,6 @@
+[![CircleCI](https://circleci.com/gh/louisdante9/Random_phone_number_generator.svg?style=svg)](https://circleci.com/gh/louisdante9/Random_phone_number_generator)
+[![Coverage Status](https://coveralls.io/repos/github/louisdante9/Random_phone_number_generator/badge.svg?branch=develop)](https://coveralls.io/github/louisdante9/Random_phone_number_generator?branch=develop)
+
 # Phone number Generator
 This an application that is used to generate random phone numbers.
 

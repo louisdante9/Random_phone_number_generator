@@ -62,10 +62,7 @@ class App extends Component {
         })
       }
     } catch (e) {
-      this.setState({
-        error: true,
-        message: "Error occurred while parsing the input"
-      })
+      console.log('an error has occured', e.message)
     }
   };
 
