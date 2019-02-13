@@ -7,7 +7,7 @@ const Sorter = ({ phoneNumbers, onChange}) => (
     {
         phoneNumbers.length > 0 &&
         <div className="sort">
-          <span>sort by</span>
+          <span>Sort by</span>
           <select onChange={onChange}>
             <option value="asc">Ascending</option>
             <option value="desc">Descending</option>
