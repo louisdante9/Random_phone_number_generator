@@ -1,4 +1,5 @@
 import React, {Component, Fragment} from 'react';
+import saveAs from 'file-saver';
 import './App.css';
 import Header from "./Header";
 import SubTitle from "./SubTitle";
@@ -6,6 +7,7 @@ import NumberInput from "./NumberInput";
 import Sorter from "./Sorter";
 import GeneratedNumbers from "./GeneratedNumbers";
 import Error from "./Error";
+import ExportButton from './ExportButton'
 
 class App extends Component {
   state = {
@@ -52,6 +54,15 @@ class App extends Component {
     );
   };
 
+  exportPhoneNumbers = () => {
+    const { phoneNumbers } = this.state;
+    if (phoneNumbers.length > 0) {
+      saveAs(new Blob(phoneNumbers, { 
+        type: "text/csv;charset=utf-8" 
+      }), 'phone_numbers.csv')
+    }
+  };
+  
   getUserInput = async event => {
     event.preventDefault();
     const limit = event.target.value;
@@ -114,9 +125,13 @@ class App extends Component {
                 onChange={this.onSortChange}
                />
               </div>
+             <ExportButton
+                phoneNumbers={phoneNumbers}
+                onClick={this.exportPhoneNumbers}
+             />
               <GeneratedNumbers
                   phoneNumbers={phoneNumbers}
-              />              {/* <button>Export Numbers</button> */}
+              />              
             </div>
           </div>
         </Fragment>

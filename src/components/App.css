@@ -73,12 +73,22 @@
   color: #fff;
   outline: none;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .sort select{
   height: 40px;
   width: 200px;
   margin-left: 10px;
+}
+
+.exp-cta {
+  padding: 7px;
+  background-color: green;
+  color: #fff;
+  border-radius: 17px;
+  cursor: pointer;
+  outline: none;
 }
 @keyframes App-logo-spin {
   from {

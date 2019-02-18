@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "coveralls": "^3.0.2",
-    "file-saver": "^2.0.0-rc.3",
+    "file-saver": "^2.0.1",
     "prop-types": "^15.6.2",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
